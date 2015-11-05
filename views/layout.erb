@@ -3,9 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title><%= @title %></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1><%= @title %></h1>
+  <header>
+		<nav class="main-nav">
+			<a href="/">Your List</a> | <a href="add">Add a Task</a>
+		</nav>
+		<section>
+			<h1><%= @title %></h1>
+		</section>
+	</header>
     <%= yield %>
   </body>
 </html>

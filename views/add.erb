@@ -1,14 +1,11 @@
 <form method="post" action="/">
   <fieldset>
-    <legend>Add a New Task</legend>
     <label for="name">Task Name:</label>
-    <input type="text" id="name" name="name">
-    <label for="description">Task Description:</label>
-    <input type="text" id="description" name="description">
+    <input type="text" id="name" name="name"><br>
+    <label for="description">Task Description:</label><br>
+    <textarea rows="10" cols="50" id="description" name="description"></textarea><br>
     <label for="date">Completed Date:</label>
-    <input type="text" id="date" name="date">
-    <input type="submit" id="submit" name="submit" value="Add New Task">
-
+    <input type="text" id="date" name="date"><br>
   </fieldset>
-
+	<input type="submit" id="submit" name="submit" class="submit" value="Add New Task">
 </form>

@@ -1,9 +1,18 @@
-<a href="/add">Add a new task</a>
-<h3>
-  Here are your tasks:
-</h3>
-<ul>
-	<% @tasks.each do |task| %>
-  <li> <%= task.name%> <%= task.description %> <%= task.completed_date %></li>
-  <% end %>
-</ul>
+<form>
+	<fieldset>
+		<legend>Tasks to Complete</legend>
+		<% @tasks.each do |task| %>
+			<label><input type="checkbox" name="completed_time[]" value= <% Time.now %>> 
+				<%= task.name %>
+	  			<%if task.description.length > 0 %> 
+	  	- 		<%=task.description %>
+	  			<% end %>
+  				<%if task.completed_date.length > 0 %>
+  					completed on <%= task.completed_date %>
+  				<% end %>
+		</label><br>
+		<% end %>
+	</fieldset>
+	<input type="submit" name="complete" value="Mark Task(s) Complete" class="submit">
+	<input type="submit" name="delete" value="Delete Task(s) Permanently" class="submit">
+</form>

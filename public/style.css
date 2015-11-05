@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|News+Gothic|Inconsolata|Droid+Sans|Raleway');
+
+body {
+  background-color: #FFF;
+  font-family: Lato, sans-serif;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+h1, h3 {
+  color: #534291;
+  text-align: center;
+}
+
+form {
+  padding: 0px 50px 0px 50px;
+  line-height: 200%;
+}
+
+fieldset {
+  padding-bottom: 20px;
+  border: 0;
+}
+
+legend {
+  color: #534291;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+label {
+  margin-left: 10px;
+}
+
+.submit {
+  text-align: center;
+  font-size: 1.1em;
+  color: #534291;
+}
+
+a:link {color: #534291}
+a:visited {color: #8186E3}
+
+.main-nav {
+  text-align:center;
+  font-size: 30px;
+  color:#8186E3;
+  height: 70px;
+  width: 100%;
+  margin-top: 0px
+  margin-bottom: 0px;
+}

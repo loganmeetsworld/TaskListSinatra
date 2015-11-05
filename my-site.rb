@@ -8,7 +8,7 @@ class MySite < Sinatra::Base
 	end
 
   def index_stuff
-    @title = "Home"
+    @title = "Your Complete Task List"
     @tasks = TaskList::TaskObject.create_tasks(current_db.get_tasks)
     erb :index
   end
