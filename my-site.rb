@@ -7,10 +7,14 @@ class MySite < Sinatra::Base
 		@current_db ||= TaskList::Task.new("tasks.db")
 	end
 
-  get "/" do
+  def index_stuff
     @title = "Home"
-  	@tasks = current_db.get_tasks
+    @tasks = TaskList::TaskObject.create_tasks(current_db.get_tasks)
     erb :index
+  end
+
+  get "/" do
+    index_stuff
   end
 
   get "/add" do
@@ -18,12 +22,12 @@ class MySite < Sinatra::Base
     erb :add
   end
 
-  post "/add" do
+  post "/" do
     @task_name = params[:name]
     @task_desc = params[:description]
     @task_date = params[:date]
     current_db.create_task(@task_name, @task_desc, @task_date)
-    erb :add
+    index_stuff
   end
 
 end

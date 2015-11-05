@@ -14,7 +14,7 @@ module TaskList
         description TEXT NULL,
         date TEXT NULL
       );')
-    end 
+    end
   end
 
 	class Task < Database
@@ -31,6 +31,34 @@ module TaskList
 				SELECT name, description, date
 				FROM tasks;')
 		end
-
 	end
+
+  class TaskObject
+
+    attr_reader :name, :description, :completed_date
+
+    def initialize(name, description, completed_date)
+      @name = name
+      @description = description
+      @completed_date = completed_date
+    end
+
+    def self.create_tasks(array)
+      array.map { |a| TaskObject.new(a[0], a[1], a[2])  }
+    end
+
+
+  #
+  #   def self.all
+  #     all_tasks = []
+  #     tasks_array = TaskList::TaskObject.current_db.get_tasks
+  #     tasks_array.each do |t|
+  #       task = TaskList::TaskObject.new(t[0], t[1], t[2])
+  #       all_tasks.push(task)
+  #     end
+  #     return all_tasks
+  #   end
+  end
+
+
 end

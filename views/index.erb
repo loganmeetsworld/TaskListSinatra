@@ -4,6 +4,6 @@
 </h3>
 <ul>
 	<% @tasks.each do |task| %>
-  <li> <%= task[0]%> <%= task[1] %></li>
+  <li> <%= task.name%> <%= task.description %> <%= task.completed_date %></li>
   <% end %>
 </ul>
