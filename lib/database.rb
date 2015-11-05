@@ -17,11 +17,6 @@ module TaskList
       );')
     end
 
-    def create_task(task_name, task_descr)
-    	@db.execute('
-    		INSERT INTO tasks (name, description)
-    		VALUES(?, ?, ?)
-    		;', task_name, task_descr)
-    end
+    
   end
 end
