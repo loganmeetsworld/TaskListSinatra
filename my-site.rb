@@ -1,15 +1,15 @@
 require "sinatra"
-require "./lib/task.rb"
+require "./lib/task_master.rb"
 
 class MySite < Sinatra::Base
 
 	def current_db
-		@current_db ||= TaskList::Task.new
+		@current_db ||= TaskList::Task.new("tasks.db")
 	end
 
   get "/" do
     @title = "Home"
-  	current_db.get_tasks
+  	@tasks = current_db.get_tasks
     erb :index
   end
 
