@@ -1,10 +1,10 @@
-<form>
+<form method="post" action="/update">
 	<fieldset>
 		<legend>Tasks to Complete</legend>
 		<% @tasks.each do |task| %>
-			<label><input type="checkbox" name="completed_time[]" value= <% Time.now %>> 
+			<label><input type="checkbox" name="is_complete[]" value=<%= task.id %>> 
 				<%= task.name %>
-	  			<%if task.description.length > 0 %> 
+	  			<%if task.description.length > 0 %>
 	  	- 		<%=task.description %>
 	  			<% end %>
   				<%if task.completed_date.length > 0 %>

@@ -10,8 +10,24 @@ module TaskList
 
     def get_tasks
 			@db.execute('
-				SELECT name, description, date
+				SELECT id, name, description, date
 				FROM tasks;')
+		end
+
+		def mark_complete(id)
+			id = id.to_i
+
+			@db.execute("
+			UPDATE tasks
+			SET date= ?
+			WHERE id= ?;", Time.now, id)
+		end
+
+		def get_completed
+		end
+
+		def delete
+
 		end
 	end
 end

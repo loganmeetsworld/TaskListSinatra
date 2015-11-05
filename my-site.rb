@@ -1,5 +1,6 @@
 require "sinatra"
 require "./lib/task_master.rb"
+require "pry"
 
 class MySite < Sinatra::Base
 
@@ -28,6 +29,18 @@ class MySite < Sinatra::Base
     @task_date = params[:date]
     current_db.create_task(@task_name, @task_desc, @task_date)
     index_stuff
+  end
+
+  post "/update" do
+    completed_tasks = params[:is_complete]
+    completed_tasks.each do |id|
+      current_db.mark_complete(id)
+    end
+    index_stuff
+  end
+
+  post "/delete" do
+
   end
 
 end
