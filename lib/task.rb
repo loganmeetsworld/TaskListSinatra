@@ -15,19 +15,23 @@ module TaskList
 		end
 
 		def mark_complete(id)
-			id = id.to_i
-
 			@db.execute("
-			UPDATE tasks
-			SET date= ?
-			WHERE id= ?;", Time.now, id)
+				UPDATE tasks
+				SET date= ?
+				WHERE id= ?;", "#{Time.now}", id.to_i)
 		end
 
-		def get_completed
+		def delete(id)
+			@db.execute("
+				DELETE FROM tasks
+				WHERE id=?;", id.to_i)
 		end
 
-		def delete
-
+		def remove_date(id)
+			@db.execute("
+				UPDATE tasks
+				SET date = ?
+				WHERE id = ?", nil, id.to_i)
 		end
 	end
 end

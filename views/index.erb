@@ -1,18 +1,37 @@
 <form method="post" action="/update">
 	<fieldset>
 		<legend>Tasks to Complete</legend>
-		<% @tasks.each do |task| %>
-			<label><input type="checkbox" name="is_complete[]" value=<%= task.id %>> 
-				<%= task.name %>
+			<% @tasks.each do |task| %>
+				<% if task.completed_date.nil? %>
+					<label><input type="checkbox" name="is_complete[]" value=<%= task.id %>> 
+					<%= task.name.capitalize %>
 	  			<%if task.description.length > 0 %>
 	  	- 		<%=task.description %>
 	  			<% end %>
-  				<%if task.completed_date.length > 0 %>
-  					completed on <%= task.completed_date %>
-  				<% end %>
-		</label><br>
+
+					</label><br>
+			<% end %>
 		<% end %>
 	</fieldset>
 	<input type="submit" name="complete" value="Mark Task(s) Complete" class="submit">
+	<input type="submit" name="delete" value="Delete Task(s) Permanently" class="submit">
+</form>
+				
+<form method="post" action="/update">
+	<fieldset>
+		<legend>Tasks Completed</legend>
+			<% @tasks.each do |task| %>
+				<% if !task.completed_date.nil? %>
+					<label><input type="checkbox" name="is_complete[]" value=<%= task.id %>> 
+					<%= task.name.capitalize %>
+	  			<%if task.description.length > 0 %>
+	  	- 		<%=task.description %>
+	  			<% end %>
+  				<%= Time.parse(task.completed_date).strftime("completed on %m/%d/%Y") %>
+					</label><br>
+			<% end %>
+		<% end %>
+	</fieldset>
+	<input type="submit" name="move" value="Move to Tasks to Complete" class="submit">
 	<input type="submit" name="delete" value="Delete Task(s) Permanently" class="submit">
 </form>

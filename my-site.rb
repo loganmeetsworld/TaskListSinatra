@@ -32,15 +32,22 @@ class MySite < Sinatra::Base
   end
 
   post "/update" do
-    completed_tasks = params[:is_complete]
-    completed_tasks.each do |id|
-      current_db.mark_complete(id)
-    end
+
+  	completed_tasks = params[:is_complete]
+	  	if params["complete"] == "Mark Task(s) Complete"
+		    completed_tasks.each do |id|
+		      current_db.mark_complete(id)
+		    end
+		  elsif params["move"] == "Move to Tasks to Complete"
+		  	completed_tasks.each do |id|
+		      current_db.remove_date(id)
+		    end
+		  elsif params["delete"] == "Delete Task(s) Permanently"
+		    completed_tasks.each do |id|
+		      current_db.delete(id)
+		    end
+		  end
+	    	
     index_stuff
   end
-
-  post "/delete" do
-
-  end
-
 end
