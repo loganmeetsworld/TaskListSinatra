@@ -9,17 +9,17 @@
 	  	- 		<%=task.description %>
 	  			<% end %>
 
-					<input type="hidden" name="id" id="id" value=<%= task.id %>>
+					<!-- <input type="hidden" name="id<%= task.id %>" id="id" value=<%= task.id %>>
 					<input type="hidden" name="description" id="description" value=<%= task.description %>>
-					<input type="hidden" name="name" id="name" value=<%= task.name %>>
-					<input type="submit" name="edit" value="edit" class="edit">
+					<input type="hidden" name="name" id="name" value=<%= task.name %>> -->
+					<input type="submit" name="edit" value="<%= task.id %>" class="edit">
 
 					</label><br>
 			<% end %>
 		<% end %>
 	</fieldset>
 	<input type="submit" name="complete" value="Mark Task(s) Complete" class="submit">
-	<input type="submit" name="delete" value="Delete Task(s) Permanently" class="submit">
+	<input type="submit" name="delete" onclick="return confirm('Are you sure?')" value="Delete Task(s) Permanently" class="submit">
 </form>
 
 <form method="post" action="/update">
@@ -38,5 +38,5 @@
 		<% end %>
 	</fieldset>
 	<input type="submit" name="move" value="Move to Tasks to Complete" class="submit">
-	<input type="submit" name="delete" value="Delete Task(s) Permanently" class="submit">
+	<input type="submit" name="delete" onclick="return confirm('Are you sure?')" value="Delete Task(s) Permanently" class="submit">
 </form>

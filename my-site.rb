@@ -47,11 +47,12 @@ class MySite < Sinatra::Base
 		    end
 		  end
 
-			if params["edit"] == "edit"
-				@task_name = params[:name]
-		    @task_desc = params[:description]
-		    @task_date = params[:date]
-				@task_id = params[:id]
+			if !params["edit"].nil?
+				@task_id = params["edit"]
+				# @task_name = params[:name]
+		    # @task_desc = params[:description]
+		    # @task_date = params[:date]
+				# @task_id = params[:id]
 				erb :add
 			else
     		index_stuff

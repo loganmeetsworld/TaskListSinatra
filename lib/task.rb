@@ -14,6 +14,11 @@ module TaskList
 				FROM tasks;')
 		end
 
+		def select_task(id)
+			@db.execute('
+				SELECT name, description, date FROM tasks WHERE id = ? ;', id)
+		end
+
 		def mark_complete(id)
 			@db.execute("
 				UPDATE tasks
