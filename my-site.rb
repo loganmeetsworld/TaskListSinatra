@@ -32,7 +32,6 @@ class MySite < Sinatra::Base
   end
 
   post "/update" do
-
   	completed_tasks = params[:is_complete]
 	  	if params["complete"] == "Mark Task(s) Complete"
 		    completed_tasks.each do |id|
@@ -47,7 +46,18 @@ class MySite < Sinatra::Base
 		      current_db.delete(id)
 		    end
 		  end
-	    	
-    index_stuff
+
+			if params["edit"] == "edit"
+				@task_name = params[:name]
+		    @task_desc = params[:description]
+		    @task_date = params[:date]
+				@task_id = params[:id]
+				erb :add
+			else
+    		index_stuff
+			end
+
+		# binding.pry
   end
+
 end
