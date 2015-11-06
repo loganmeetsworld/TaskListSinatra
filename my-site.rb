@@ -19,16 +19,24 @@ class MySite < Sinatra::Base
   end
 
   get "/add" do
-    @title = "Add a Task!"
+    @title = "Add or Update Your Task"
+    @task_array = []
     erb :add
   end
 
   post "/" do
+  	@task_id = params[:id]
     @task_name = params[:name]
     @task_desc = params[:description]
     @task_date = params[:date]
-    current_db.create_task(@task_name, @task_desc, @task_date)
+
+    if @task_id == ""
+    	current_db.create_task(@task_name, @task_desc, @task_date)
+    else 
+    	current_db.update_task(@task_id, @task_name, @task_desc)
+    end
     index_stuff
+
   end
 
   post "/update" do
@@ -48,13 +56,11 @@ class MySite < Sinatra::Base
 		  end
 
 			if !params["edit"].nil?
-				@task_id = params["edit"]
-				# @task_name = params[:name]
-		    # @task_desc = params[:description]
-		    # @task_date = params[:date]
-				# @task_id = params[:id]
+				task_id = params["edit_id"]
+				@task_array = current_db.select_task(task_id).flatten
 				erb :add
 			else
+				@task_array = []
     		index_stuff
 			end
 

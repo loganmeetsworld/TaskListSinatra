@@ -4,8 +4,8 @@ body {
   background-color: #FFF;
   font-family: Lato, sans-serif;
   width: 100%;
-  max-width: 600px;
   margin: auto;
+
 }
 
 h1, h3 {
@@ -14,6 +14,8 @@ h1, h3 {
 }
 
 form {
+  width: 600px;
+  margin: auto;
   padding: 0px 50px 0px 50px;
   line-height: 200%;
 }
@@ -33,21 +35,74 @@ label {
   margin-left: 10px;
 }
 
-.submit {
+#name {
+  border: none;
+  border-glow: none;
+  background-color: #D1D1E0;
+  outline: none;
+  padding: 5px;
+  font-family: Lato, sans-serif;
+  font-size: 1.05em;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  border: none;
+  outline: none;
+  background-color: #D1D1E0;
+  padding: 5px;
+  font-family: Lato, sans-serif;
+  font-size: 1.05em;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+
+.button {
   text-align: center;
+}
+
+.submit {
   font-size: 1.1em;
   color: #534291;
+  margin-bottom: 2em;
+  display: inline-block;
+
+}
+
+.edit { 
+  border: none;
+  background-color:#FFF;
+  color: #FFF;
+}
+
+.edit:hover  {  
+  font-family: Lato, sans-serif;
+  color: #A3A3C2;
+  font-size: 1.1em;
 }
 
 a:link {color: #534291}
-a:visited {color: #8186E3}
+a:visited {color: #534291}
 
 .main-nav {
+  background-color: #E5E5FF;
   text-align:center;
-  font-size: 30px;
+  font-size: 20px;
   color:#8186E3;
-  height: 70px;
+  height: 40px;
   width: 100%;
-  margin-top: 0px
+  margin-top: 10px
   margin-bottom: 0px;
+}
+
+
+footer {
+  background-color: #E5E5FF;
+  color: #534291;
+  padding: 1em 0;
+  text-align: center;
+  width: 100%;
 }
