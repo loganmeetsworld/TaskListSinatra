@@ -56,7 +56,7 @@ class MySite < Sinatra::Base
 		  end
 
 			if !params["edit"].nil?
-				task_id = params["edit_id"]
+				task_id = params["edit"]
 				@task_array = current_db.select_task(task_id).flatten
 				erb :add
 			else
