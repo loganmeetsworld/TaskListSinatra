@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|News+Gothic|Inconsolata|Droid+Sans|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Lato|News+Gothic|Inconsolata|Droid+Sans|Raleway|Leckerli+One');
 
 body {
   background-color: #FFF;
@@ -9,6 +9,8 @@ body {
 }
 
 h1, h3 {
+  font-size: 1.6em;
+  font-family: 'Leckerli One';
   color: #534291;
   text-align: center;
 }
@@ -26,8 +28,9 @@ fieldset {
 }
 
 legend {
+  font-family: 'Leckerli One';
   color: #534291;
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: bold;
 }
 
