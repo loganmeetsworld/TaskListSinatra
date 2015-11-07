@@ -1,6 +1,5 @@
 require "sinatra"
 require "./lib/task_master.rb"
-require "pry"
 
 class MySite < Sinatra::Base
 
